@@ -11,13 +11,26 @@ include 'partials/header.php';
 
     <section class="dashboard">
 
-    <?php if(isset($_SESSION['add-user-success'])) : ?>
+    <?php if(isset($_SESSION['add-user-success'])) : // show if add user was sucessful ?>
           <div class="alert__message success container">
           <p><?= $_SESSION['add-user-success']; 
                   unset($_SESSION['add-user-success']);
           ?></p>
         </div>
 
+        <?php elseif(isset($_SESSION['edit-user-success'])) : // show if edit user was sucessful ?>
+          <div class="alert__message success container">
+          <p><?= $_SESSION['edit-user-success']; 
+                  unset($_SESSION['edit-user-success']);
+          ?></p>
+        </div>
+
+        <?php elseif(isset($_SESSION['edit-user'])) : // show if edit user was not sucessful ?>
+          <div class="alert__message error container">
+          <p><?= $_SESSION['edit-user']; 
+                  unset($_SESSION['edit-user']);
+          ?></p>
+        </div>
 
           <?php endif ?>
       <div class="container dashboard__container">
