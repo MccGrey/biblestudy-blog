@@ -16,7 +16,7 @@ if(isset($_POST['submit'])) {
 
     // redirect to category page with form data if here was an invalid input
     if(isset($_SESSION['add-category'])) {
-        $_SESSION['add-caregory-data'] = $_POST;
+        $_SESSION['add-category-data'] = $_POST;
         header('location: ' . ROOT_URL . 'admin/add-category.php');
         die();
     }else {
@@ -29,7 +29,7 @@ if(isset($_POST['submit'])) {
            die();
 
         } else {
-            $_SESSION['add-category-success'] = 'category title added successfully';
+            $_SESSION['add-category-success'] = "catgory $title added successfully";
             header('location: ' . ROOT_URL . 'admin/manage-categories.php');
             die();
         }
