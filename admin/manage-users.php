@@ -32,6 +32,20 @@ include 'partials/header.php';
           ?></p>
         </div>
 
+        <?php elseif(isset($_SESSION['delete-user'])) : // show if delete user was not sucessful ?>
+          <div class="alert__message error container">
+          <p><?= $_SESSION['delete-user']; 
+                  unset($_SESSION['delete-user']);
+          ?></p>
+        </div>
+
+        <?php elseif(isset($_SESSION['delete-user-success'])) : // show if delete user was sucessful ?>
+          <div class="alert__message success container">
+          <p><?= $_SESSION['delete-user-success']; 
+                  unset($_SESSION['delete-user-success']);
+          ?></p>
+        </div>
+
           <?php endif ?>
       <div class="container dashboard__container">
         <button class="sidebar__toggle" id="show__sidebar-btn">
