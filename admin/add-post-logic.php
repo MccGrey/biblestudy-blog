@@ -44,7 +44,7 @@ if(isset($_POST['submit'])) {
                 $_SESSION['add-post'] = "File size too big. shoule be less tha 2MB";
             }
         } else {
-            $_SESSION['add-post'] = "File shoule be png, jpg, or jpeg";
+            $_SESSION['add-post'] = "File should be png, jpg, or jpeg";
         }
     }
 
@@ -56,17 +56,17 @@ if(isset($_POST['submit'])) {
     } else {
         //set ios fetured of all post to 0
         if ($is_featured == 1) {
-            $zero_all_is_featured_query = 'UPDATE posts SET is_featured=0';
+            $zero_all_is_featured_query = "UPDATE posts SET is_featured=0";
             $zero_all_is_featured_result = mysqli_query($connection, $zero_all_is_featured_query);
         }
 
-        // insert post into data vase
+        // insert post into data case
         $query = "INSERT INTO posts (title, body, thumbnail, category_id, author_id, is_featured) VALUES ('$title', '$body', '$thumbnail_name', $category_id, $author_id, $is_featured)";
         $result = mysqli_query($connection, $query);
 
         if (!mysqli_errno($connection)) {
             $_SESSION['add-post-success'] = 'New post added successfully';
-            header('location: ' .ROOT_URL . 'admin/');
+            header('location: ' . ROOT_URL . 'admin/');
             die();
         }
     }
